@@ -1,8 +1,10 @@
 import 'package:go_router/go_router.dart';
 import 'package:my_recipes/core/routes/app_routes_path.dart';
-import 'package:my_recipes/ui/core/root.dart';
-import 'package:my_recipes/ui/home/home.dart';
-import 'package:my_recipes/ui/ingredients/ingredients_view.dart';
+import 'package:my_recipes/packages/home/core/root.dart';
+import 'package:my_recipes/packages/home/home.dart';
+import 'package:my_recipes/packages/ingredients/ui/ingredient_details_view.dart';
+import 'package:my_recipes/packages/ingredients/ui/ingredients_view.dart';
+import 'package:my_recipes/packages/recipes/recipes_view.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: AppRoutePaths.home,
@@ -17,6 +19,14 @@ final GoRouter router = GoRouter(
         GoRoute(
           path: AppRoutePaths.ingredients,
           builder: (context, state) => IngredientsView(),
+        ),
+        GoRoute(
+          path: AppRoutePaths.ingredientDetails,
+          builder: (context, state) => IngredientDetailsView(),
+        ),
+        GoRoute(
+          path: AppRoutePaths.recipes,
+          builder: (context, state) => RecipesView(),
         ),
       ],
     )

@@ -26,6 +26,9 @@ class _RootViewState extends State<RootView> {
         context.go(AppRoutePaths.home);
         break;
       case 1:
+        context.go(AppRoutePaths.recipes);
+        break;
+      case 2:
         context.go(AppRoutePaths.ingredients);
         break;
       default:
