@@ -22,14 +22,22 @@ class NetworkAdapterImpl implements NetworkAdapter {
     Options? options,
   }) async {
     try {
+      print('teste1');
+
       final Response result = await _dio.get(
         url,
         queryParameters: queryParameters,
         options: options,
       );
 
+      print('teste2');
+      print('teste${result.data}');
+
       return result;
     } catch (e) {
+      print('teste3');
+
+      print(e);
       rethrow;
     }
   }

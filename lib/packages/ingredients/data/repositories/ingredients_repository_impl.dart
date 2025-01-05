@@ -1,8 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:my_recipes/packages/ingredients/data/model/ingredient_model.dart';
-import 'package:my_recipes/packages/ingredients/data/services/ingredients_repository.dart';
-import 'package:my_recipes/packages/ingredients/data/services/ingredients_service.dart';
+import 'package:injectable/injectable.dart';
+import 'package:my_recipes/core/exceptions/failure.dart';
+import 'package:my_recipes/packages/ingredients/data/models/ingredient_model.dart';
+import 'package:my_recipes/packages/ingredients/domain/repositories/ingredients_repository.dart';
+import 'package:my_recipes/packages/ingredients/domain/services/ingredients_service.dart';
 
+@Injectable(as: IngredientsRepository)
 class IngredientsRepositoryImpl extends IngredientsRepository {
   IngredientsRepositoryImpl({
     required this.ingredientsService,
@@ -15,9 +18,16 @@ class IngredientsRepositoryImpl extends IngredientsRepository {
     try {
       final Response response = await ingredientsService.getIngredients();
 
-      return [IngredientModel.fromJson(response.data)];
+      final List<IngredientModel> ingredientModelList =
+          (response.data as List<Map<String, dynamic>>)
+              .map((data) => IngredientModel.fromJson(data))
+              .toList();
+
+      return ingredientModelList;
+    } on DioException catch (e) {
+      throw handleDioError(e);
     } catch (e) {
-      rethrow;
+      throw ServerException();
     }
   }
 }

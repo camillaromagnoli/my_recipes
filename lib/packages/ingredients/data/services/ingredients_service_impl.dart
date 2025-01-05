@@ -1,10 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:my_recipes/core/adapters/network_adapter.dart';
+import 'package:my_recipes/packages/ingredients/domain/services/ingredients_service.dart';
 
-abstract class IngredientsService {
-  Future<Response> getIngredients();
-}
-
+@Injectable(as: IngredientsService)
 class IngredientsServiceImpl extends IngredientsService {
   IngredientsServiceImpl({
     required NetworkAdapter networkAdapter,
@@ -14,6 +13,8 @@ class IngredientsServiceImpl extends IngredientsService {
 
   @override
   Future<Response> getIngredients() async {
-    return _networkAdapter.get(url: '');
+    final Response response = await _networkAdapter.get(url: '');
+
+    return response;
   }
 }

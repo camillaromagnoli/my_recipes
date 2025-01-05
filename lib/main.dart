@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:my_recipes/config/dependencies.dart';
 import 'package:my_recipes/core/design/colors.dart';
 import 'package:my_recipes/core/routes/app_routes.dart';
 
 void main() {
+  configureDependencies();
+
   runApp(const MyApp());
 }
 
