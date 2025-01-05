@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "183567868424",
+    "project_id": "my-recipes-fc3c0",
+    "storage_bucket": "my-recipes-fc3c0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183567868424:android:3d457e4c01d1cbe8e5e7bd",
+        "android_client_info": {
+          "package_name": "com.example.my_recipes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByXSd5Saq5cz-7hDnkoqkCtjKEmumhfSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
